@@ -37,7 +37,7 @@ def install_groundingdino():
     import torch
     from packaging.version import parse
 
-    # torch_version: '1.13.1' or '2.0.0' or ...
+    # torch_version: '1.13.1' or '2.0.1' or ...
     torch_version = parse(torch.__version__).base_version
     # cuda_version: '117' or '118' or 'None'
     cuda_version = torch.version.cuda.replace('.', '')
@@ -46,7 +46,8 @@ def install_groundingdino():
     if (
         not check_system_machine()
         or (torch_version, cuda_version)
-        not in [('1.13.1', '117'), ('2.0.0', '117'), ('2.0.0', '118')]
+        #not in [('1.13.1', '117'), ('2.0.0', '117'), ('2.0.0', '118')]
+        not in [('1.13.1', '117'), ('2.0.1', '117'), ('2.0.1', '118')]
         or not python_version
     ):
         launch.run_pip('install git+https://github.com/IDEA-Research/GroundingDINO', 'sd-webui-ddsd requirement: groundingdino')
